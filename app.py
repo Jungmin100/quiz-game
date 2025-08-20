@@ -58,3 +58,17 @@ if st.button("🔄 다시 시작"):
     st.session_state.score = 0
     st.session_state.current_q = 0
     st.session_state.finished = False
+
+if st.session_state.finished:
+    total_q = len(QUIZ)
+    score = st.session_state.score
+    rate = (score / total_q) * 100
+
+    st.subheader("🎉 퀴즈 완료!")
+    st.write(f"총 점수: {score} / {total_q}")
+    st.write(f"정답률: {rate:.1f}%")
+
+if st.button("다시 시작하기"):
+    st.session_state.score = 0
+    st.session_state.current_q = 0
+    st.session_state.finished = False
