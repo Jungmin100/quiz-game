@@ -31,30 +31,30 @@ st.title("🧩 스트림릿 퀴즈 게임")
 
 # --- 문제 출제 ---
 if not st.session_state.finished:
-q = QUIZ[st.session_state.current_q]
-st.subheader(f"문제 {st.session_state.current_q+1}: {q['q']}")
+    q = QUIZ[st.session_state.current_q]
+    st.subheader(f"문제 {st.session_state.current_q+1}: {q['q']}")
 
-answer = st.text_input("정답을 입력하세요:")
+    answer = st.text_input("정답을 입력하세요:")
 
-if st.button("제출"):
-if answer.strip() == q["a"]:
-st.success("✅ 정답입니다!")
-st.session_state.score += 1
-else:
-st.error(f"❌ 오답! 정답은 {q['a']} 입니다.")
+    if st.button("제출"):
+        if answer.strip() == q["a"]:
+            st.success("✅ 정답입니다!")
+            st.session_state.score += 1
+        else:
+            st.error(f"❌ 오답! 정답은 {q['a']} 입니다.")
 
-st.session_state.current_q += 1
+        st.session_state.current_q += 1
 
-if st.session_state.current_q >= len(QUIZ):
-st.session_state.finished = True
+        if st.session_state.current_q >= len(QUIZ):
+            st.session_state.finished = True
 
 # --- 결과 출력 ---
 if st.session_state.finished:
-st.subheader("📊 퀴즈 종료!")
-st.write(f"당신의 점수: **{st.session_state.score} / {len(QUIZ)}**")
+    st.subheader("📊 퀴즈 종료!")
+    st.write(f"당신의 점수: **{st.session_state.score} / {len(QUIZ)}**")
 
 # --- 리셋 버튼 ---
 if st.button("🔄 다시 시작"):
-st.session_state.score = 0
-st.session_state.current_q = 0
-st.session_state.finished = False
+    st.session_state.score = 0
+    st.session_state.current_q = 0
+    st.session_state.finished = False
