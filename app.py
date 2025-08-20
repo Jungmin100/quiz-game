@@ -23,9 +23,9 @@ QUIZ = [
 
 # --- 초기 상태 ---
 if "score" not in st.session_state:
-st.session_state.score = 0
-st.session_state.current_q = 0
-st.session_state.finished = False
+    st.session_state.score = 0
+    st.session_state.current_q = 0
+    st.session_state.finished = False
 
 st.title("🧩 스트림릿 퀴즈 게임")
 
